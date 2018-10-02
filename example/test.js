@@ -1,26 +1,18 @@
 const asnync_request = require("../index.js");
 
-let gob_url_array = [];
-let gob_optional_array = [];
+let url_array = [
+  "https://jsonplaceholder.typicode.com/posts/43",
+  "https://jsonplaceholder.typicode.com/posts/44"
+];
+let optional_array = [44, 45];
 
-for (let index = 200000; index < 325000; index++) {
-  gob_url_array.push("https://www.wowhead.com/object=" + index);
-  gob_optional_array.push(index);
-}
+let asnync_job = new asnync_request(url_array, optional_array);
 
-let go_crawler = new asnync_request(
-  gob_url_array,
-  gob_optional_array,
-  3000,
-  10
-);
-
-go_crawler.start_fetch((err, res) => {
+asnync_job.start_fetch(function(err, res) {
   if (err) {
     console.log(err);
   }
   if (res) {
-    //uri , body , optional
-    console.log("Update tick: " + res.optional);
+    console.log(res.uri, res.optional, res.body);
   }
 });

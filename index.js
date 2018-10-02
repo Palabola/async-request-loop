@@ -34,12 +34,12 @@ class Async_request {
 
   async_fecth() {
     // End of the job
-    if (this.step > this.fecth_array.length) {
-      this.callback("Finish", null);
-      return;
-    }
     setTimeout(() => {
       for (let i = 0; i < this.thread; i++) {
+        if (this.step >= this.fecth_array.length) {
+          this.callback("Finish", null);
+          return;
+        }
         // Init Threads or renew them
         if (this.thread_array[i] == 1 || this.thread_array[i] === undefined) {
           // Set state for 0 until async request done avoid overwrite
