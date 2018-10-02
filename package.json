@@ -1,0 +1,16 @@
+{
+  "name": "async-request-loop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Palabola/async-request-loop.git"
+  },
+  "keywords": [],
+  "author": "Palabola",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
